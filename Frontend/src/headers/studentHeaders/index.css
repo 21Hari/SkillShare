@@ -1,0 +1,88 @@
+/*******Responsive student navbar********/
+.student-header {
+    background-color: #2c3e50;
+    background-size: cover;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.student-log {
+    float: right;
+    font-size: 25px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    color: white;
+}
+
+
+
+.student-logout-button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.student-logout-button:hover {
+    background-color: #c0392b;
+}
+
+
+
+.student-nav {
+    display: none;
+}
+
+.nav-link {
+    text-decoration: none;
+}
+
+.nav-link-icons {
+    color: #fff;
+}
+
+.student-icons {
+    display: block;
+
+    color: white;
+    cursor: pointer;
+
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.student-icon {
+    font-size: 25px;
+}
+
+.student-icon-myprogress {
+    padding-top: 0.5rem;
+}
+
+@media screen and (min-width: 768px) {
+    .student-icons {
+        display: none;
+    }
+
+    .student-nav {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .student-nav-element {
+        margin: 0 10px;
+        font-size: 20px;
+        font-family: "Roboto", sans-serif;
+        font-weight: bold;
+        color: white;
+    }
+}

@@ -1,0 +1,82 @@
+### Register new user
+
+POST http://localhost:3000/register
+Content-Type: application/json
+
+{
+  "name": "Hari",
+  "email": "hari@example.com",
+  "role": "instructor",
+  "password": "hari@1234"
+}
+
+### Login the user to get JWT Token
+
+POST http://localhost:3000/login
+Content-Type: application/json
+
+{
+    "name": "vishnu",
+    "password": "vishnu123"
+}
+
+
+
+
+### Get a all courses
+GET http://localhost:3000/courses
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6InZpc2hudSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzU2NDYyNjI4fQ.LVx_QjGmmSUsv0bTPGr5ATzMpPA-44414dX2xMCwsHw
+
+### Get a specific course
+GET http://localhost:3000/courses/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkhhcmkiLCJyb2xlIjoiaW5zdHJ1Y3RvciIsImlhdCI6MTc1NjM2Mzg0Nn0.GUhfOvSSJftpMcs1LXpfUM9FHn-dwcGybpW6Ed4ON_w
+
+### Create a new course (instructor only) 
+POST http://localhost:3000/courses
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkhhcmkiLCJyb2xlIjoiaW5zdHJ1Y3RvciIsImlhdCI6MTc1NjQ3NTUwMn0.aKzFBML-AQEN563JH04tQXbdHxbyifjo5DfaacGRQFY
+
+ {
+    "title": "Non Relational Database Management System",
+    "description": "Master Mongodb and database optimization.",
+    "instructor": "Sophia White",
+    "image_url": "https://res.cloudinary.com/dmjd0kzfj/image/upload/v1756454952/resized_6_ztchmz.png"
+  }
+### Update a course (instructor only)
+PUT http://localhost:3000/courses/1
+Content-Type: application/json      
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkhhcmkiLCJyb2xlIjoiaW5zdHJ1Y3RvciIsImlhdCI6MTc1NjM2Mzg0Nn0.GUhfOvSSJftpMcs1LXpfUM9FHn-dwcGybpW6Ed4ON_w
+
+{
+    "title": "Advanced Node.js",
+    "description": "Learn advanced concepts of Node.js"
+    
+}
+
+### Delete a course (instructor only)
+DELETE http://localhost:3000/courses/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkhhcmkiLCJyb2xlIjoiaW5zdHJ1Y3RvciIsImlhdCI6MTc1NjQ0OTk2Mn0.qDGsyBDQ_shU_Wc5joEgN7QCRZerOMO086hmseu6Slg
+
+### Get Entrollment
+GET http://localhost:3000/my-courses
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6InZpc2hudSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzU3MDQ4OTk4fQ.u8yCWNACV7sjmqUgJ983Usid-Aheln3qOKHFwNCAPfw
+
+### Upload a Lessons (instructor only)
+POST http://localhost:3000/courses/13/lessons
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkhhcmkiLCJyb2xlIjoiaW5zdHJ1Y3RvciIsImlhdCI6MTc1NjUyMzkwNX0.T82mIaor9JcEafwQaEIoEWV9h4TSBXYjVi--EK-svvo
+
+     {
+    "course_id": 13,
+    "title": "MongoDB CRUD Operations",
+    "content": "Master insert, update, delete, and query operations in MongoDB.",
+    "video_url": "https://www.youtube.com/watch?v=oSIv-E60NiU"
+  }
+### Get a lessons
+
+GET http://localhost:3000/courses/10/lessons
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwibmFtZSI6InZpc2hudSIsInJvbGUiOiJzdHVkZW50IiwiaWF0IjoxNzU3MDUxOTM1fQ.rGz6p9-jMzmZ6mYB6vqzaEYW9cziEtt24P-3emPfIFY
+
+### Delete the lesson (instructor only)
+DELETE http://localhost:3000/courses/13/lessons/23
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6IkhhcmkiLCJyb2xlIjoiaW5zdHJ1Y3RvciIsImlhdCI6MTc1NjUyMzkwNX0.T82mIaor9JcEafwQaEIoEWV9h4TSBXYjVi--EK-svvo

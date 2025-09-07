@@ -1,0 +1,128 @@
+/* Loader */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+}
+
+/* Card container */
+.st-course-card-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* mobile: single column */
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .st-course-card-container {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        justify-content: center;
+        padding: 20px;
+    }
+}
+
+/* Card */
+.st-course-item {
+    display: flex;
+    justify-content: center;
+}
+
+.st-course-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    width: 100%;
+    max-width: 380px;
+    /* keeps cards from stretching too wide */
+}
+
+.st-course-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Image */
+.st-course-image {
+    width: 100%;
+    height: 200px;
+    background: #eee;
+    flex-shrink: 0;
+}
+
+.st-course-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Content */
+.st-course-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 16px;
+    gap: 12px;
+    text-align: left;
+}
+
+/* Title & description */
+.st-course-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #111;
+    margin: 0;
+}
+
+.st-course-description {
+    color: #555;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    flex-grow: 1;
+    overflow: hidden;
+    margin: 0;
+}
+
+/* Footer */
+.st-course-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    color: #777;
+    margin-top: auto;
+    padding-top: 8px;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* Button */
+.st-course-button {
+    margin-top: 12px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #0b63d6;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.25s ease;
+    align-self: flex-start;
+}
+
+.st-course-button:hover:not([disabled]) {
+    background: #084da8;
+}
+
+.st-course-button[disabled] {
+    opacity: 0.6;
+    cursor: default;
+}

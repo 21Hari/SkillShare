@@ -1,0 +1,15 @@
+.student-dashboard-content {
+    min-height: 100vh;
+    background: #f4f6f9;
+    background-size: cover;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.student-dashbord-welcome {
+    font-size: 30px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}

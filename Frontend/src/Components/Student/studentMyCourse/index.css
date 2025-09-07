@@ -1,0 +1,125 @@
+.course-card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.course-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 320px;
+    margin: 15px;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.course-image img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.course-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.course-title {
+    font-size: 1.2rem;
+    color: #222;
+    margin: 0;
+}
+
+.course-description {
+    font-size: 0.95rem;
+    color: #555;
+    flex-grow: 1;
+}
+
+.course-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    color: #888;
+}
+
+.instructor {
+    font-weight: 500;
+}
+
+.created-at {
+    font-style: italic;
+}
+
+.course-button {
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: blue;
+    color: #fff;
+    font-family: "Roboto";
+    font-weight: bolder;
+
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 600px) {
+    .course-card-container {
+        flex-direction: row;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .course-card {
+        max-width: 400px;
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 900px) {
+    .course-card-container {
+        flex-direction: column;
+        margin: auto;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .course-card {
+        flex-direction: row;
+        max-width: 700px;
+        justify-content: center;
+    }
+
+    .course-image img {
+        width: 300px;
+        height: 100%;
+    }
+
+    .course-content {
+        padding: 20px;
+    }
+}
