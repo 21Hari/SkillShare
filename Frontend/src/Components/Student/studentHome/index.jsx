@@ -7,6 +7,7 @@ import './index.css';
 const StudentHome = () => {
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [filteredCourses, setFilteredCourses] = useState([]);
     const [enroll, setEnrolled] = useState(false)
 
     useEffect(() => { gettingCourses() }, [])
@@ -32,8 +33,8 @@ const StudentHome = () => {
                 description: eachValue.description,
                 imageUrl: eachValue.image_url,
                 instructorName: eachValue.instructor_name,
-                createdAt: eachValue.
-                    created_at
+                createdAt: new Date (eachValue.
+                    created_at).toLocaleDateString()
 
 
             }))
@@ -47,6 +48,14 @@ const StudentHome = () => {
 
 
     }
+
+    const handlingSearchInput = (event) => {
+        const query = event.target.value.toLowerCase();
+        const results = courses.filter((c) =>
+            c.title.toLowerCase().includes(query)
+        );
+        setFilteredCourses(results);
+    };
 
     const handlingEnrollment = async (courseId) => {
         const Url = `http://localhost:3000/courses/${courseId}/enroll`
@@ -72,34 +81,38 @@ const StudentHome = () => {
 
     }
     //console.log(courses)
-    const renderCourseDetails = () => (
-        <ul className="st-course-card-container">{
-            courses.map(each_course => (
-                <li key={each_course.id} className="st-course-item">
+    const renderCourseDetails = () => {
+        const list = filteredCourses.length > 0 ? filteredCourses : courses;
+        return (
 
-                    <div className="st-course-card">
-                        <div className="st-course-image">
-                            <img src={each_course.imageUrl} alt={each_course.title} />
-                        </div>
-                        <div className="st-course-content">
-                            <h3 className="st-course-title">{each_course.title}</h3>
-                            <p className="st-course-description">{each_course.description}</p>
-                            <div className="st-course-footer">
-                                <span className="st-instructor">By {each_course.
-                                    instructorName}</span>
-                                <span className="st-created-at">{each_course.createdAt}</span>
-                            </div>
-                            <div>
-                                <button className="st-course-button" onClick={() => handlingEnrollment(each_course.id)} disabled={enroll}>{enroll ? "Enrolled" : "Enroll"}</button>
-                            </div>
-                        </div>
-                    </div>
+            list.length === 0 ? (<p className="no-results">No courses found</p>) : (<ul className="st-course-card-container">{
+                list.map(each_course => (
+                    <li key={each_course.id} className="st-course-item">
 
-                </li>
-            ))
-        }
-        </ul>
-    )
+                        <div className="st-course-card">
+                            <div className="st-course-image">
+                                <img src={each_course.imageUrl} alt={each_course.title} />
+                            </div>
+                            <div className="st-course-content">
+                                <h3 className="st-course-title">{each_course.title}</h3>
+                                <p className="st-course-description">{each_course.description}</p>
+                                <div className="st-course-footer">
+                                    <span className="st-instructor">By {each_course.
+                                        instructorName}</span>
+                                    <span className="st-created-at">{each_course.createdAt}</span>
+                                </div>
+                                <div>
+                                    <button className="st-course-button" onClick={() => handlingEnrollment(each_course.id)} disabled={enroll}>{enroll ? "Enrolled" : "Enroll"}</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </li>
+                ))
+            }
+            </ul >)
+        )
+    }
 
     const renderLoading = () => (
         <div className="loader-container" data-testid="loader">
@@ -107,7 +120,19 @@ const StudentHome = () => {
         </div>
     )
     return (
-        loading ? (renderLoading()) : (renderCourseDetails())
+        <div>
+            <div className="input-container">
+                <input type="search" placeholder="Search the course name" onChange={handlingSearchInput} />
+            </div>
+
+
+            {
+
+                loading ? (renderLoading()) : (renderCourseDetails())
+            }
+
+        </div>
+
 
     )
 

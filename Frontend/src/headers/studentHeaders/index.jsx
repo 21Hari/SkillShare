@@ -19,7 +19,7 @@ const StudentHeader = () => {
     return (
         <div>
             <div className="student-header">
-                <h1 className="student-log">Skil Share</h1>
+                <h1 className="student-log">SkillShare</h1>
                 <div className="student-nav">
                     <Link to="/student/dashboard/" className="nav-link"><p className="student-nav-element">Home</p></Link>
                     <Link to="/student/dashboard/mycourse" className="nav-link"><p className="student-nav-element">My Courses</p></Link>

@@ -37,7 +37,7 @@ const AddCourseForm = () => {
 
             if (res.ok) {
                 alert("Course created successfully!");
-                navigate("/instructor/dashboard"); // 👈 back to instructor dashboard
+                navigate("/instructor/dashboard"); 
             } else {
                 alert(data.message || "Failed to create course");
             }

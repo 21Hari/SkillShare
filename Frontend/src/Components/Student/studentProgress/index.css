@@ -1,12 +1,10 @@
-/* StudentProgress.css */
-
 .progress-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     font-family: Arial, sans-serif;
     color: #1a1a1a;
-    /* Dark text */
+
 }
 
 .progress-container h2 {
@@ -15,20 +13,19 @@
     font-size: 26px;
     font-weight: bold;
     color: #2f3e46;
-    /* Dark teal */
+
 }
 
-/* Grid layout */
+
 .course-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
-/* Card */
 .course-card {
     background: #f8f9fa;
-    /* Light gray */
+
     border: 1px solid #dee2e6;
     border-radius: 12px;
     padding: 20px;
@@ -45,35 +42,34 @@
     font-size: 20px;
     margin-bottom: 15px;
     color: #0077b6;
-    /* Blue */
+
 }
 
-/* Circle progress */
+
 .circle {
     width: 100px;
     height: 100px;
     margin: 0 auto 15px;
     border-radius: 50%;
     border: 6px solid #00b4d8;
-    /* Bright cyan */
+
     display: flex;
     align-items: center;
     justify-content: center;
     background: #e0f7fa;
-    /* Light cyan */
+
     font-size: 18px;
     font-weight: bold;
     color: #023e8a;
-    /* Navy blue */
+
 }
 
 .course-card p {
     font-size: 14px;
     color: #495057;
-    /* Muted gray */
+
 }
 
-/* Responsive tweaks */
 @media (max-width: 768px) {
     .progress-container {
         padding: 15px;

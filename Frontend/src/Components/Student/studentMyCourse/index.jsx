@@ -36,8 +36,8 @@ const StudentMyCourse = () => {
                 description: eachValue.description,
                 imageUrl: eachValue.image_url,
                 instructorName: eachValue.instructor_name,
-                createdAt: eachValue.
-                    created_at
+                createdAt: new Date(eachValue.
+                    created_at).toLocaleDateString()
 
 
             }))
